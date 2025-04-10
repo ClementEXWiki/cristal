@@ -208,3 +208,9 @@ const content = uniAstToBlockNote.uniAstToBlockNote(uniAst);
     </template>
   </BlockNoteViewAdapter>
 </template>
+
+<style scoped>
+:global(.bn-container .bn-editor *) {
+  font-family: var(--cr-font-sans);
+}
+</style>
