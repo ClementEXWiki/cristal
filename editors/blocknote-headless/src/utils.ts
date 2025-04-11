@@ -61,6 +61,24 @@ function stringToColor(str: string, prc?: number): string {
 }
 
 /**
+ * Get a function's output or `null` if thrown an error
+ *
+ * @since 0.16
+ *
+ * @param func - The function to try
+ *
+ * @returns -
+ */
+function tryFallible<T>(func: () => T): T | null {
+  try {
+    return func();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (e: unknown) {
+    return null;
+  }
+}
+
+/**
  * Get a function's output of the thrown error
  * Will construct a new Error object if the thrown value is not an instance of the Error class
  *
@@ -100,4 +118,4 @@ function tryFallibleOrError<T>(func: () => T): T | Error {
   }
 }
 
-export { stringToColor, tryFallibleOrError };
+export { stringToColor, tryFallible, tryFallibleOrError };
