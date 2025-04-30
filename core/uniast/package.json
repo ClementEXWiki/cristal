@@ -20,14 +20,12 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "main": "./src/index.ts",
   "scripts": {
     "build": "tsc --project tsconfig.json && vite build",
     "clean": "rimraf dist",
     "lint": "eslint \"./src/**/*.{ts,tsx,vue}\" --max-warnings=0",
     "test": "vitest --run"
   },
-  "types": "dist/index.d.ts",
   "dependencies": {
     "@xwiki/cristal-fn-utils": "workspace:*",
     "@xwiki/cristal-model-api": "workspace:*",

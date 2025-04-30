@@ -20,7 +20,6 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "main": "./src/index.ts",
   "scripts": {
     "build": "pnpm compile",
     "clean": "rimraf dist",
@@ -29,7 +28,6 @@
     "prepack": "pnpm build",
     "test": "vitest --run"
   },
-  "types": "dist/index.d.ts",
   "dependencies": {
     "@xwiki/cristal-alerts-default": "workspace:*",
     "@xwiki/cristal-api": "workspace:*",

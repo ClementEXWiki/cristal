@@ -28,7 +28,6 @@
     "start:e2e:xwiki": "pnpm run -C ../sources/xwiki/mock-server dev",
     "test:e2e": "playwright test"
   },
-  "types": "dist/index.d.ts",
   "dependencies": {
     "@xwiki/cristal-authentication-github": "workspace:*",
     "@xwiki/cristal-authentication-nextcloud": "workspace:*",

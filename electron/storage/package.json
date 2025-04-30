@@ -30,7 +30,6 @@
       "types": "./dist/main/index.d.ts"
     }
   },
-  "main": "./src/index.ts",
   "scripts": {
     "build": "pnpm compile",
     "clean": "rimraf dist",
