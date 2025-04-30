@@ -14,7 +14,11 @@
   },
   "type": "module",
   "exports": {
-    ".": "./src/index.tsx"
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "main": "./src/index.tsx",
   "scripts": {
@@ -32,16 +36,5 @@
     "@types/react-dom": "19.1.2",
     "@vue/shared": "3.5.13",
     "typescript": "5.8.3"
-  },
-  "publishConfig": {
-    "exports": {
-      ".": {
-        "import": "./dist/index.es.js",
-        "require": "./dist/index.umd.js",
-        "types": "./dist/index.d.ts"
-      }
-    },
-    "main": "./dist/index.es.js",
-    "types": "./dist/index.d.ts"
   }
 }

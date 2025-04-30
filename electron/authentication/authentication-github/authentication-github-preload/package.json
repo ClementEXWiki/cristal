@@ -14,7 +14,10 @@
   },
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "main": "./src/index.ts",
   "scripts": {
@@ -33,15 +36,5 @@
     "@xwiki/cristal-dev-config": "workspace:*",
     "typescript": "5.8.3",
     "vite": "6.3.3"
-  },
-  "publishConfig": {
-    "exports": {
-      ".": {
-        "require": "./dist/index.umd.js",
-        "types": "./dist/index.d.ts"
-      }
-    },
-    "main": "./dist/index.umd.js",
-    "types": "./dist/index.d.ts"
   }
 }

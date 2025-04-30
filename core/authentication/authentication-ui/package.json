@@ -14,7 +14,11 @@
   },
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "main": "./src/index.ts",
   "scripts": {
@@ -43,16 +47,5 @@
     "vite": "6.3.3",
     "vitest": "3.1.2",
     "vue-tsc": "2.2.10"
-  },
-  "publishConfig": {
-    "exports": {
-      ".": {
-        "import": "./dist/index.es.js",
-        "require": "./dist/index.umd.js",
-        "types": "./dist/index.d.ts"
-      }
-    },
-    "main": "./dist/index.es.js",
-    "types": "./dist/index.d.ts"
   }
 }

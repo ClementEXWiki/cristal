@@ -14,9 +14,21 @@
   },
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "./preload": "./src/electron/preload/index.ts",
-    "./main": "./src/electron/main/index.ts"
+    ".": {
+      "import": "./dist/main/index.es.js",
+      "require": "./dist/main/index.umd.js",
+      "types": "./dist/main/index.d.ts"
+    },
+    "./preload": {
+      "import": "./dist/preload/index.es.js",
+      "require": "./dist/preload/index.umd.js",
+      "types": "./dist/preload/index.d.ts"
+    },
+    "./main": {
+      "import": "./dist/main/index.es.js",
+      "require": "./dist/main/index.umd.js",
+      "types": "./dist/main/index.d.ts"
+    }
   },
   "main": "./src/index.ts",
   "scripts": {
@@ -48,26 +60,5 @@
     "typescript": "5.8.3",
     "vite": "6.3.3",
     "vite-plugin-node": "5.0.1"
-  },
-  "publishConfig": {
-    "exports": {
-      ".": {
-        "import": "./dist/main/index.es.js",
-        "require": "./dist/main/index.umd.js",
-        "types": "./dist/main/index.d.ts"
-      },
-      "./preload": {
-        "import": "./dist/preload/index.es.js",
-        "require": "./dist/preload/index.umd.js",
-        "types": "./dist/preload/index.d.ts"
-      },
-      "./main": {
-        "import": "./dist/main/index.es.js",
-        "require": "./dist/main/index.umd.js",
-        "types": "./dist/main/index.d.ts"
-      }
-    },
-    "main": "./dist/main/index.es.js",
-    "types": "./dist/main/index.d.ts"
   }
 }
