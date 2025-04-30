@@ -217,9 +217,19 @@ const { t } = useI18n({
   <BlockNoteViewAdapter v-else v-bind="initializedEditorProps" :content>
     <!-- Custom (popover) formatting toolbar -->
     <template #formattingToolbar="{ editor, currentBlock }">
-      <ImageToolbar v-if="currentBlock.type === 'image'" :editor :current-block :link-edition-ctx />
+      <ImageToolbar
+        v-if="currentBlock.type === 'image'"
+        :editor
+        :current-block
+        :link-edition-ctx
+      />
 
-      <ParagraphToolbar v-else-if="currentBlock.type === 'paragraph'" :editor :current-block :link-edition-ctx />
+      <ParagraphToolbar
+        v-else-if="currentBlock.type === 'paragraph'"
+        :editor
+        :current-block
+        :link-edition-ctx
+      />
 
       <!--
         NOTE: This is the expected behaviour once we've implemented a custom toolbar for **ALL** block types
@@ -238,8 +248,14 @@ const { t } = useI18n({
 
     <!-- Custom (popover) file panel for editing file-like blocks -->
     <template #filePanel="{ editor, filePanelProps }">
-      <ImageFilePanel v-if="filePanelProps.block.type === 'image'" :editor :current-block="filePanelProps.block as any /* required as filePanelProps.block is not narrowed enough here */
-        " :link-edition-ctx />
+      <ImageFilePanel
+        v-if="filePanelProps.block.type === 'image'"
+        :editor
+        :current-block="
+          filePanelProps.block as any /* required as filePanelProps.block is not narrowed enough here */
+        "
+        :link-edition-ctx
+      />
 
       <strong v-else>
         Unexpected file type block: {{ filePanelProps.block.type }}
