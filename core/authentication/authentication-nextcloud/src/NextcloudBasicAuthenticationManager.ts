@@ -24,7 +24,6 @@ import { inject, injectable } from "inversify";
 import Cookies from "js-cookie";
 import type { CristalApp, WikiConfig } from "@xwiki/cristal-api";
 import type { UserDetails } from "@xwiki/cristal-authentication-api";
-import type { CookieAttributes } from "js-cookie";
 
 /**
  * {@link AuthenticationManager} for the Nextcloud backend, using Basic auth.
@@ -45,7 +44,9 @@ export class NextcloudBasicAuthenticationManager
 
   private readonly userIdCookieKeyPrefix = "userId";
 
-  private readonly cookiesOptions: CookieAttributes = {
+  // This weird type is required as the real `CookieAttributes` type is hidden behind a namespace
+  // And we can't import it due to using `moduleResolution: bundler`
+  private readonly cookiesOptions: Parameters<typeof Cookies.set>[2] = {
     secure: true,
     sameSite: "strict",
   };

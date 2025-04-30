@@ -53,7 +53,7 @@ import { debounce } from "lodash-es";
 import { watch } from "vue";
 import { createI18n, useI18n } from "vue-i18n";
 import type { SkinManager } from "@xwiki/cristal-api";
-import type { AuthenticationManagerProvider } from "@xwiki/cristal-authentication-api/dist";
+import type { AuthenticationManagerProvider } from "@xwiki/cristal-authentication-api";
 
 const {
   editorProps,
@@ -161,18 +161,18 @@ const initializedEditorProps: Omit<
 > = {
   ...editorProps,
   prefixDefaultFormattingToolbarFor: [
-    "paragraph",
-    "BlockQuote",
+    "bulletListItem",
+    "checkListItem",
+    "codeBlock",
+    "column",
+    "columnList",
     "heading",
     "Heading4",
     "Heading5",
     "Heading6",
-    "bulletListItem",
-    "checkListItem",
     "numberedListItem",
-    "column",
-    "columnList",
-    "codeBlock",
+    "paragraph",
+    "quote",
     "table",
   ],
   blockNoteOptions: {
@@ -217,19 +217,9 @@ const { t } = useI18n({
   <BlockNoteViewAdapter v-else v-bind="initializedEditorProps" :content>
     <!-- Custom (popover) formatting toolbar -->
     <template #formattingToolbar="{ editor, currentBlock }">
-      <ImageToolbar
-        v-if="currentBlock.type === 'image'"
-        :editor
-        :current-block
-        :link-edition-ctx
-      />
+      <ImageToolbar v-if="currentBlock.type === 'image'" :editor :current-block :link-edition-ctx />
 
-      <ParagraphToolbar
-        v-else-if="currentBlock.type === 'paragraph'"
-        :editor
-        :current-block
-        :link-edition-ctx
-      />
+      <ParagraphToolbar v-else-if="currentBlock.type === 'paragraph'" :editor :current-block :link-edition-ctx />
 
       <!--
         NOTE: This is the expected behaviour once we've implemented a custom toolbar for **ALL** block types
@@ -248,14 +238,8 @@ const { t } = useI18n({
 
     <!-- Custom (popover) file panel for editing file-like blocks -->
     <template #filePanel="{ editor, filePanelProps }">
-      <ImageFilePanel
-        v-if="filePanelProps.block.type === 'image'"
-        :editor
-        :current-block="
-          filePanelProps.block as any /* required as filePanelProps.block is not narrowed enough here */
-        "
-        :link-edition-ctx
-      />
+      <ImageFilePanel v-if="filePanelProps.block.type === 'image'" :editor :current-block="filePanelProps.block as any /* required as filePanelProps.block is not narrowed enough here */
+        " :link-edition-ctx />
 
       <strong v-else>
         Unexpected file type block: {{ filePanelProps.block.type }}

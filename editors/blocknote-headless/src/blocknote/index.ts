@@ -18,8 +18,7 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-import { BlockQuote } from "./blocks/BlockQuote";
-import { Heading4, Heading5, Heading6 } from "./blocks/Headings";
+import { Heading4, Heading5, Heading6 } from "./blocks/Headings.jsx";
 import {
   Block,
   BlockNoteEditor,
@@ -30,8 +29,8 @@ import {
   combineByGroup,
   defaultBlockSpecs,
   filterSuggestionItems,
-  locales,
 } from "@blocknote/core";
+import * as locales from "@blocknote/core/locales";
 import {
   DefaultReactSuggestionItem,
   getDefaultReactSlashMenuItems,
@@ -61,7 +60,6 @@ function createBlockNoteSchema() {
       Heading4: Heading4.block,
       Heading5: Heading5.block,
       Heading6: Heading6.block,
-      BlockQuote: BlockQuote.block,
     },
   });
 
@@ -89,7 +87,7 @@ function querySuggestionsMenuItems(
       getMultiColumnSlashMenuItems(editor),
 
       // Custom blocks
-      [Heading4, Heading5, Heading6, BlockQuote].map((custom) =>
+      [Heading4, Heading5, Heading6].map((custom) =>
         custom.slashMenuEntry(editor),
       ),
     ),

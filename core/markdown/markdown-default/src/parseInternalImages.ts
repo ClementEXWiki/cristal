@@ -19,7 +19,8 @@
  */
 
 import { EntityType } from "@xwiki/cristal-model-api";
-import MarkdownIt, { StateCore, Token } from "markdown-it";
+import { StateCore, Token } from "markdown-it/index.js";
+import { RuleCore } from "markdown-it/lib/parser_core.mjs";
 import type { ModelReferenceParser } from "@xwiki/cristal-model-reference-api";
 import type { RemoteURLSerializer } from "@xwiki/cristal-model-remote-url-api";
 
@@ -172,7 +173,7 @@ function handleInlineBlockToken(
 export function parseInternalImages(
   modelReferenceParser: ModelReferenceParser,
   remoteURLSerializer: RemoteURLSerializer,
-): MarkdownIt.Core.RuleCore {
+): RuleCore {
   return function (state: StateCore): void {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     state.tokens.forEach((blockToken: any) => {

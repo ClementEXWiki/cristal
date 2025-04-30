@@ -25,7 +25,6 @@ import { inject, injectable } from "inversify";
 import Cookies from "js-cookie";
 import type { CristalApp, WikiConfig } from "@xwiki/cristal-api";
 import type { UserDetails } from "@xwiki/cristal-authentication-api";
-import type { CookieAttributes } from "js-cookie";
 
 /**
  * {@link AuthenticationManager} for the GitHub backend.
@@ -103,7 +102,9 @@ export class GitHubAuthenticationManager implements AuthenticationManager {
     const configName = window.localStorage.getItem(
       this.localStorageConfigName,
     )!;
-    const cookiesOptions: CookieAttributes = {
+    // This weird type is required as the real `CookieAttributes` type is hidden behind a namespace
+    // And we can't import it due to using `moduleResolution: bundler`
+    const cookiesOptions: Parameters<typeof Cookies.set>[2] = {
       secure: true,
       sameSite: "strict",
     };

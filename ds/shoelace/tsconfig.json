@@ -6,12 +6,6 @@
     "types": ["@shoelace-style/shoelace/dist/types/vue"]
   },
   "extends": "./../../tsconfig.json",
-  "include": [
-    "./src/index.ts",
-    "./src/**/*"
-  ],
-  "exclude": [
-    "**/*.spec.ts",
-    "**/*.test.ts"
-  ]
+  "include": ["./src/index.ts", "./src/**/*"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"]
 }

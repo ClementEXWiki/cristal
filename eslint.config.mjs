@@ -50,6 +50,9 @@ export default [
       // This will do the trick
       "import/parsers": {
         espree: [".js", ".cjs", ".mjs", ".jsx"],
+        node: {
+          extensions: [".js", ".jsx", ".ts", ".tsx"],
+        },
       },
       "import/resolver": {
         typescript: true,

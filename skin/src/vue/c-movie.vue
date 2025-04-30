@@ -31,14 +31,20 @@ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
         Poster:
         <Field :document="document" name="thumbnail" :mode="mode" type="html" />
       </li>
-      <li>Genre: <Field :document="document" name="genre" :mode="mode" /></li>
+      <li>Genre:
+        <Field :document="document" name="genre" :mode="mode" />
+      </li>
       <li>Placeholder</li>
       <li>
-        Director: <Field :document="document" name="director" :mode="mode" />
+        Director:
+        <Field :document="document" name="director" :mode="mode" />
       </li>
-      <li>Seen: <Field :document="document" name="seen" :mode="mode" /></li>
+      <li>Seen:
+        <Field :document="document" name="seen" :mode="mode" />
+      </li>
       <li>
-        Runtime: <Field :document="document" name="runtime" :mode="mode" />
+        Runtime:
+        <Field :document="document" name="runtime" :mode="mode" />
       </li>
       <li>
         Publish date:
@@ -55,7 +61,7 @@ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 import Field from "./c-field.vue";
 import { inject } from "vue";
 import type { CristalApp, Document, Logger } from "@xwiki/cristal-api";
-import type { PropType } from "vue/dist/vue";
+import type { PropType } from "vue";
 
 let logger: Logger;
 

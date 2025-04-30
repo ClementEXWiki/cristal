@@ -10,6 +10,7 @@
     "isolatedDeclarations": false,
 
     /* Building */
+    "noEmit": false,
     "sourceMap": true,
     "declarationMap": true,
     "outDir": "dist/"

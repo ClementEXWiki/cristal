@@ -19,7 +19,7 @@
  */
 
 import macro from "./marked-macro";
-import DOMPurify from "dompurify";
+import DOMPurify, { Config } from "dompurify";
 import { inject, injectable } from "inversify";
 import { marked } from "marked";
 import { baseUrl } from "marked-base-url";
@@ -37,7 +37,7 @@ export class MarkdownToHTMLConverter implements Converter {
 
   private logger: Logger;
   public markedInit: boolean;
-  public sanitizeConfig: DOMPurify.Config = {
+  public sanitizeConfig: Config = {
     ADD_TAGS: ["#comment"],
     ADD_ATTR: ["macroname"],
     FORCE_BODY: true,

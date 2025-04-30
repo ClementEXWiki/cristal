@@ -24,7 +24,7 @@ import {
   EditorLink,
   EditorStyleSchema,
   EditorStyledText,
-} from ".";
+} from "./index.js";
 import { Link, TableCell as BlockNoteTableCell } from "@blocknote/core";
 import { tryFallibleOrError } from "@xwiki/cristal-fn-utils";
 import {
@@ -157,7 +157,7 @@ export class BlockNoteToUniAstConverter {
         dontExpectChildren();
 
         return {
-          type: "codeBlock",
+          type: "code",
           content: block.content
             .map((inline) => {
               if (inline.type !== "text") {
@@ -173,11 +173,11 @@ export class BlockNoteToUniAstConverter {
           language: block.props.language,
         };
 
-      case "BlockQuote":
+      case "quote":
         dontExpectChildren();
 
         return {
-          type: "blockQuote",
+          type: "quote",
           content: [
             {
               type: "paragraph",
