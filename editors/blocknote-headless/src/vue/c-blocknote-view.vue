@@ -273,4 +273,9 @@ const { t } = useI18n({
   border-radius: 6px;
   padding: 2px;
 }
+
+:deep(.bn-container .bn-editor *) {
+  font: var(--cr-base-font-size) var(--cr-font-sans);
+  font-weight: var(--cr-font-weight-normal);
+}
 </style>

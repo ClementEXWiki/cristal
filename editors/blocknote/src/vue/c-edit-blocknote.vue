@@ -198,23 +198,23 @@ watch(
         class="doc-title"
       />
     </template>
+
     <template #default>
       <div class="doc-content">
         <span v-if="unknownSyntax">{{ unknownSyntax }}</span>
         <span v-else-if="!editorProps || !editorContent">Loading...</span>
+
         <template v-else>
-          <div class="editor-centerer">
-            <div class="editor">
-              <CBlockNoteView
-                ref="editorInstance"
-                :editor-props
-                :editor-content
-                :container
-                :skin-manager
-                :realtime-server-u-r-l
-                @blocknote-save="save"
-              />
-            </div>
+          <div class="editor">
+            <CBlockNoteView
+              ref="editorInstance"
+              :editor-props
+              :editor-content
+              :container
+              :skin-manager
+              :realtime-server-u-r-l
+              @blocknote-save="save"
+            />
           </div>
 
           <form class="pagemenu" @submit="submit">
@@ -236,6 +236,24 @@ watch(
 </template>
 
 <style scoped>
+.doc-title {
+  margin: 0;
+  padding: 0;
+
+  /* TODO: find a better way to mimic the rendered pages' style than hardcoding some paddings & margins here */
+  padding-top: 0.3rem;
+  margin-bottom: -0.5rem;
+}
+
+.editor {
+  outline: none;
+  /* max-width: var(--cr-sizes-max-page-width); */
+
+  /* TODO: find a better way to mimic the rendered pages' style than hardcoding some paddings & margins here */
+  margin-left: -2.75rem;
+  width: calc(100% + (2 * 2.75rem));
+}
+
 .pagemenu {
   position: sticky;
   bottom: 0;
@@ -261,17 +279,5 @@ watch(
 .pagemenu-status > * {
   /* Match the action button padding, which seems to be hard-coded.  */
   padding: 0 12px;
-}
-
-.editor-centerer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.editor {
-  outline: none;
-  max-width: var(--cr-sizes-max-page-width);
-  width: 100%;
 }
 </style>

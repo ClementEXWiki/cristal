@@ -62,20 +62,23 @@ function onCollapseMainSidebar() {
   <div>
     <!-- Lazy component in charge of loading design-system specific resources.
     For instance, CSS sheets. -->
-    <x-load></x-load>
+    <x-load />
+
     <div
       id="view"
       class="wrapper"
       :class="{ 'sidebar-is-collapsed': isMainSidebarCollapsed }"
     >
       <UIX uixname="view.before" />
+
       <CTemplate
         name="sidebar"
         @collapse-main-sidebar="onCollapseMainSidebar"
       />
+
       <CTemplate name="header" />
 
-      <c-main></c-main>
+      <c-main />
 
       <!-- TODO CRISTAL-165: Eventually we will need a right sidebar-->
       <!-- <c-secondary-sidebar></c-secondary-sidebar> -->
@@ -106,6 +109,11 @@ function onCollapseMainSidebar() {
 :global(.xw-cristal > div) {
   height: 100%;
 }
+
+/*
+  TODO: remove all these :deep() selectors as this is not a good way to do nested styling
+        replace these with slots instead
+*/
 
 :deep(.doc-content),
 :deep(.doc-header-inner),
