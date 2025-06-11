@@ -38,8 +38,16 @@ export class UixBlocknoteEditorProvider extends DefaultVueTemplateProvider {
   registered = false;
 
   override async getVueComponent(): Promise<Component> {
-    const component = (await import("../vue/c-edit-blocknote.vue")).default;
+    console.log("getVueComponent::");
+    const cp = await import("../vue/c-edit-blocknote.vue").catch((e) => {
+      console.log({ e });
+      return e;
+    });
+    console.log({ cp });
+    const component = cp.default;
+    console.log("after await import");
     component.editorname = "blocknote";
+    console.log({ component });
     return component;
   }
   override getVueName(): string {

@@ -18,6 +18,8 @@ Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 02110-1301 USA, or see the FSF site: http://www.fsf.org.
 -->
 <script setup lang="ts">
+console.log("BEFORE IMPORTS");
+
 import cRealtimeUsers from "./c-realtime-users.vue";
 import cSaveStatus, { SaveStatus } from "./c-save-status.vue";
 import messages from "../translations";
@@ -28,7 +30,9 @@ import {
   DocumentService,
   name as documentServiceName,
 } from "@xwiki/cristal-document-api";
+console.log("BEFORE HEADLESS IMPORT");
 import { BlocknoteEditor as CBlockNoteView } from "@xwiki/cristal-editors-blocknote-headless";
+console.log("AFTER HEADLESS IMPORT");
 import { ModelReferenceHandlerProvider } from "@xwiki/cristal-model-reference-api";
 import { CArticle } from "@xwiki/cristal-skin";
 import {
@@ -207,6 +211,7 @@ watch(
 );
 
 const provider = shallowRef<HocuspocusProvider | null>(null);
+console.log({ CBlockNoteView });
 </script>
 
 <template>

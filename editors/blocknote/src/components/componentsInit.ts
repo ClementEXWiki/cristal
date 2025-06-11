@@ -24,6 +24,7 @@ import { Container } from "inversify";
 
 export default class ComponentInit {
   constructor(container: Container) {
+    console.log("constructor");
     container
       .bind<UIXTemplateProvider>("UIXTemplateProvider")
       .to(UixBlocknoteEditorProvider)

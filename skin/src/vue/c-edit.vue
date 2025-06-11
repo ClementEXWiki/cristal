@@ -29,13 +29,11 @@ const logger = cristal.getLogger("skin.vue.editor");
 
 logger?.debug("Editor UIX components are ", comps);
 
-const editor = cristal.getWikiConfig().editor;
-
 const editComponent =
   comps.find(
     (item) =>
       // TODO: fix unsafe access to editorname
-      (item as { editorname: string }).editorname === (editor ?? "tiptap"),
+      (item as { editorname: string }).editorname === "blocknote",
   ) ?? comps[0];
 
 logger?.debug("Final component ", editComponent);

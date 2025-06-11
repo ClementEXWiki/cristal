@@ -20,48 +20,40 @@
 
 {
   // We want all suggestions right away
-  "prHourlyLimit": 0,
-  "prConcurrentLimit": 0,
+  prHourlyLimit: 0,
+  prConcurrentLimit: 0,
   // Prefix update commit with [Misc] by default so that only updates requiring a Jira issue need a message edit.
-  "commitMessageAction": "[Misc] Update",
+  commitMessageAction: "[Misc] Update",
   // Distinguish separate all new major versions on separate pull requests.
-  "separateMajorMinor": true,
-  "separateMultipleMajor": true,
-  assignees: [
-    "manuelleduc"
-  ],
-  "packageRules": [
+  separateMajorMinor: true,
+  separateMultipleMajor: true,
+  assignees: ["manuelleduc"],
+  packageRules: [
     // Wait for releases to be 3 days old before creating a PR.
     // Avoid having endless suggestions of minor upgrades for fast moving dependencies (e.g., nx).
     {
-      "matchDatasources": [
-        "npm"
-      ],
-      "minimumReleaseAge": "3 days"
+      matchDatasources: ["npm"],
+      minimumReleaseAge: "3 days",
     },
     {
-      "groupName": "tiptap",
-      "matchDepPatterns": "@tiptap/.+"
+      groupName: "hocuspocus",
+      matchDepPatterns: "@hocuspocus/.+",
     },
     {
-      "groupName": "hocuspocus",
-      "matchDepPatterns": "@hocuspocus/.+"
+      groupName: "@typescript-eslint",
+      matchDepPatterns: "@typescript-eslint/.+",
     },
     {
-      "groupName": "@typescript-eslint",
-      "matchDepPatterns": "@typescript-eslint/.+"
+      groupName: "blocknote",
+      matchDepPatterns: "@blocknote/.+",
     },
     {
-      "groupName": "blocknote",
-      "matchDepPatterns": "@blocknote/.+"
+      groupName: "react",
+      matchDepPatterns: "^react(-.+)?",
     },
     {
-      "groupName": "react",
-      "matchDepPatterns": "^react(-.+)?"
+      groupName: "@types/react",
+      matchDepPatterns: "^@types/react(-.+)?",
     },
-    {
-      "groupName": "@types/react",
-      "matchDepPatterns": "^@types/react(-.+)?"
-    }
-  ]
+  ],
 }

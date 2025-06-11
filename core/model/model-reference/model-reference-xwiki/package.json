@@ -35,9 +35,9 @@
     "reflect-metadata": "0.2.2",
     "typescript": "5.8.3",
     "vite": "6.3.5",
-    "vitest": "3.2.0",
+    "vitest": "3.2.3",
     "vitest-mock-extended": "3.1.0",
-    "vue": "3.5.13"
+    "vue": "3.5.16"
   },
   "publishConfig": {
     "exports": {
