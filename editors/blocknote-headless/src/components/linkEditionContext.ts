@@ -22,7 +22,7 @@ import { Container } from "inversify";
 import type { AttachmentsService } from "@xwiki/cristal-attachments-api";
 import type { DocumentService } from "@xwiki/cristal-document-api";
 import type { LinkEditionContext } from "@xwiki/cristal-editors-blocknote-react";
-// import type { LinkSuggestServiceProvider } from "@xwiki/cristal-link-suggest-api";
+import type { LinkSuggestServiceProvider } from "@xwiki/cristal-link-suggest-api";
 import type {
   ModelReferenceHandlerProvider,
   ModelReferenceParserProvider,
